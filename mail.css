@@ -1,0 +1,206 @@
+/* Global styling */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit';
+    background: black;
+    margin: 0;
+    padding-top: 80px;
+    /* Adjusted for navbar height */
+}
+
+/* Contact form container */
+.contact-container {
+    height: calc(100vh - 80px);
+    /* Adjusted height for navbar */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* Left section of the contact form */
+.contact-left {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+}
+
+.contact-left-title h2 {
+    font-weight: 600;
+    color: white;
+    font-size: 48px;
+    margin-bottom: 5px;
+}
+
+.contact-left-title hr {
+    border: none;
+    width: 120px;
+    height: 5px;
+    background-color: #a363aa;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Contact input fields */
+.contact-inputs {
+    width: 500px;
+    /* Increase the width */
+    height: 60px;
+    /* Increase the height */
+    border: 2px solid white;
+    /* White border */
+    outline: none;
+    padding-left: 25px;
+    font-weight: 500;
+    color: #666;
+    border-radius: 50px;
+    background-color: black;
+    /* Matches the background */
+    transition: border-color 0.3s ease;
+}
+
+/* Textarea customization */
+.contact-left textarea {
+    height: 160px;
+    /* Increase height for textarea */
+    padding-top: 15px;
+    border-radius: 20px;
+    border: 2px solid white;
+    /* White border */
+    background-color: black;
+    color: #666;
+}
+
+/* Change border color on focus */
+.contact-inputs:focus {
+    border-color: #ff994f;
+}
+
+/* Placeholder color */
+.contact-inputs::placeholder {
+    color: #a9a9a9;
+}
+
+/* Submit button styling */
+.contact-left button {
+    --border-radius: 15px;
+    --border-width: 4px;
+    appearance: none;
+    position: relative;
+    padding: 1em 2em;
+    border: 0;
+    background-color: #212121;
+    font-family: "Roboto", Arial, "Segoe UI", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.contact-left button::after {
+    --m-i: linear-gradient(#000, #000);
+    --m-o: content-box, padding-box;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: var(--border-width);
+    border-radius: var(--border-radius);
+    background-image: conic-gradient(#488cfb, #29dbbc, #ddf505, #ff9f0e, #e440bb, #655adc, #488cfb);
+    -webkit-mask-image: var(--m-i), var(--m-i);
+    mask-image: var(--m-i), var(--m-i);
+    -webkit-mask-origin: var(--m-o);
+    mask-origin: var(--m-o);
+    -webkit-mask-clip: var(--m-o);
+    mask-clip: 10;
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    filter: hue-rotate(0);
+    animation: rotate-hue linear 500ms infinite;
+    animation-play-state: paused;
+}
+
+/* Hover animation for button */
+.contact-left button:hover::after {
+    animation-play-state: running;
+}
+
+@keyframes rotate-hue {
+    to {
+        filter: hue-rotate(1turn);
+    }
+}
+
+.contact-left button,
+.contact-left button::after {
+    box-sizing: border-box;
+}
+
+.contact-left button:active {
+    --border-width: 5px;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    /* Changed background to white */
+    padding: 15px;
+    height: 100px;
+    /* Increased height for navbar */
+    /* Added height for navbar */
+    position: fixed;
+    /* Made navbar fixed */
+    top: 0;
+    /* Set top to 0 to keep it at the top */
+    left: 0;
+    /* Align to left */
+    width: 100%;
+    /* Full width */
+    z-index: 1000;
+    /* Ensure it's on top of other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Optional shadow for better visibility */
+}
+
+.navbar .logo h1 {
+    color: black;
+    /* Changed logo color to black */
+    font-size: 3rem;
+    /* Increased logo font size */
+    /* Adjusted logo font size */
+}
+
+.navbar .nav-links {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+}
+
+.navbar .nav-links li {
+    margin-right: 30px;
+    /* Increased margin for spacing */
+}
+
+.navbar .nav-links li a {
+    color: black;
+    /* Changed link color to black */
+    text-decoration: none;
+    font-size: 20px;
+    /* Increased font size for links */
+}
+
+.navbar .nav-links li a:hover {
+    color: #ddd;
+    /* Hover color */
+}

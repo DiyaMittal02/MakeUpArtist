@@ -1,0 +1,277 @@
+/* General Styles */
+body {
+    background-color: black;
+    /* Background color for the entire page */
+    margin: 0;
+    /* Remove default margin */
+    padding-top: 80px;
+    /* Adjusted to the navbar height */
+}
+
+/* Navigation Bar Styles */
+nav {
+    background: white;
+    /* Background color for navbar */
+    height: 80px;
+    /* Navbar height */
+    width: 100%;
+    /* Full width */
+    position: fixed;
+    /* Fixed position */
+    top: 0;
+    /* Set top to 0 to keep it at the top */
+    left: 0;
+    /* Align left */
+    z-index: 1000;
+    /* Ensure it's on top of other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Optional shadow for better visibility */
+}
+
+.navbar-container {
+    display: flex;
+    /* Flexbox for layout */
+    justify-content: space-between;
+    /* Space between logo and menu */
+    align-items: center;
+    /* Center align items vertically */
+    padding: 0 20px;
+    /* Added padding for spacing */
+}
+
+.navbar-logo {
+    font-size: 2.5rem;
+    /* Logo font size */
+    color: black;
+    /* Logo text color */
+    font-weight: bold;
+    /* Bold font */
+    font-family: 'Arial', sans-serif;
+    /* Font family for logo */
+}
+
+.navbar-menu {
+    list-style: none;
+    /* Remove bullet points */
+    padding: 0;
+    /* Remove default padding */
+    margin: 0;
+    /* Remove default margin */
+    display: flex;
+    /* Flexbox layout for menu */
+}
+
+.navbar-menu li {
+    margin: 0 15px;
+    /* Space between menu items */
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    /* Remove underline */
+    color: black;
+    /* Menu item text color */
+    font-size: 1.5rem;
+    /* Increased font size for links */
+    font-family: 'Arial', sans-serif;
+    /* Font family for menu items */
+    transition: color 0.3s;
+    /* Transition effect for hover */
+}
+
+.navbar-menu a:hover {
+    color: #007BFF;
+    /* Change text color on hover to blue */
+    text-decoration: underline;
+    /* Underline on hover */
+}
+
+/* Services Section Styles */
+.services-container {
+    border: 1px solid #ccc;
+    /* Border styling */
+    border-radius: 10px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Shadow effect */
+    padding: 20px;
+    /* Padding inside container */
+    background-color: black;
+    /* Background color */
+    margin: 20px;
+    /* Margin to separate from other elements */
+}
+
+.services-heading {
+    font-size: 3rem;
+    /* Heading size */
+    color: white;
+    /* Heading color */
+    margin-bottom: 10px;
+    /* Space below heading */
+}
+
+.services-intro {
+    font-size: 1.3rem;
+    /* Intro text size */
+    color: white;
+    /* Intro text color */
+    margin-bottom: 15px;
+    /* Space below intro */
+}
+
+.services-paragraph {
+    font-size: 1.3rem;
+    /* Paragraph text size */
+    color: white;
+    /* Paragraph text color */
+}
+
+/* Read More Button Styles */
+.read-more-btn {
+    --border-radius: 15px;
+    /* Border radius */
+    --border-width: 4px;
+    /* Border width */
+    appearance: none;
+    /* Remove default styling */
+    position: relative;
+    /* Position relative for pseudo-elements */
+    padding: 1em 2em;
+    /* Padding for button */
+    border: 0;
+    /* Remove border */
+    background-color: #212121;
+    /* Background color */
+    font-family: "Roboto", Arial, "Segoe UI", sans-serif;
+    /* Font family */
+    font-size: 18px;
+    /* Font size */
+    font-weight: 500;
+    /* Font weight */
+    color: #fff;
+    /* Text color */
+    z-index: 2;
+    /* Layering */
+}
+
+.read-more-btn::after {
+    --m-i: linear-gradient(#000, #000);
+    /* Masking effect */
+    --m-o: content-box, padding-box;
+    /* Mask origin */
+    content: "";
+    /* Empty content */
+    position: absolute;
+    /* Absolute positioning */
+    left: 0;
+    /* Align left */
+    top: 0;
+    /* Align top */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    padding: var(--border-width);
+    /* Padding for the mask */
+    border-radius: var(--border-radius);
+    /* Border radius */
+    background-image: conic-gradient(#488cfb, #29dbbc, #ddf505, #ff9f0e, #e440bb, #655adc, #488cfb);
+    /* Gradient background */
+    -webkit-mask-image: var(--m-i), var(--m-i);
+    /* Masking for webkit */
+    mask-image: var(--m-i), var(--m-i);
+    /* Masking */
+    -webkit-mask-origin: var(--m-o);
+    /* Mask origin */
+    mask-origin: var(--m-o);
+    /* Mask origin */
+    -webkit-mask-clip: var(--m-o);
+    /* Mask clip */
+    mask-clip: 10;
+    /* Mask clip */
+    mask-composite: exclude;
+    /* Exclude mask */
+    -webkit-mask-composite: destination-out;
+    /* Exclude mask for webkit */
+    filter: hue-rotate(0);
+    /* Initial hue rotation */
+    animation: rotate-hue linear 500ms infinite;
+    /* Animation effect */
+    animation-play-state: paused;
+    /* Pause animation initially */
+}
+
+.read-more-btn:hover::after {
+    animation-play-state: running;
+    /* Start animation on hover */
+}
+
+@keyframes rotate-hue {
+    to {
+        filter: hue-rotate(1turn);
+        /* Complete hue rotation */
+    }
+}
+
+.read-more-btn,
+.read-more-btn::after {
+    box-sizing: border-box;
+    /* Box sizing */
+}
+
+.read-more-btn:active {
+    --border-width: 5px;
+    /* Increase border width on active */
+}
+
+/* Image Grid Styles */
+.image-grid {
+    display: grid;
+    /* Grid display */
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns */
+    column-gap: 5px;
+    /* Column gap */
+    row-gap: 15px;
+    /* Row gap */
+    margin-top: 20px;
+    /* Margin above grid */
+    justify-items: center;
+    /* Center items */
+}
+
+/* Image Styling */
+.image-grid img {
+    width: 70%;
+    /* Image width */
+    object-fit: cover;
+    /* Cover fit */
+    border-radius: 10px;
+    /* Rounded corners */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* Transition effects */
+}
+
+/* Image Hover Effect */
+.image-grid img:hover {
+    transform: scale(1.05);
+    /* Scale effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Shadow effect on hover */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns on smaller screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .image-grid {
+        grid-template-columns: 1fr;
+        /* 1 column on extra small screens */
+    }
+}
